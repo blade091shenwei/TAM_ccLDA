@@ -1,0 +1,47 @@
+进入代码所在的文件夹后
+编译文件命令：
+	javac *.java
+运行命令：
+	java LearnTopicModel -model <model_name> -input <input_file> [-iters <int>] <model-specific parameters>
+	其中:
+	model_name: lda 或 cclda 或 tam
+	input_file: 输入文件名（文件的路径）
+	
+<<<<<<< HEAD
+使用LDA：
+	java LearnTopicModel -model lda -input /media/blade091/新加卷/Data/TAM-Data/Using/Politics-Religious-Freedom-Not-to-Serve-Jews 
+
+	输出结果top words：
+	python topwords.py /media/blade091/新加卷/Data/TAM-Data/Using/Politics-Religious-Freedom-Not-to-Serve-Jews.assign > /media/blade091/新加卷/Data/TAM-Data/Using/output_topwords_lda.txt
+
+使用TAM：
+	针对一篇文章的评论：
+	设置的参数：
+	-iters	迭代的次数 2000
+	-Z 	topic的数目 25
+	-Y 	aspect的数目 2
+	-alpha 	doc-topic先验分布参数 0.1
+	-beta	doc-aspect先验分布参数 1.0
+	-omega	topic-word先验分布参数(文章中的w) 0.01 
+	-delta0 是否属于background level的先验分布参数 10.0
+	-delta1 是否属于topic level的先验分布的参数 10.0
+	-gamma0	是否属于aspect-independent route的先验分布的参数 10.0
+	-gamma1 是否属于aspect-dependent route的先验分布的参数 10.0
+	-labelPrior 如果我们知道文章所属的collection的话，先验分布参数beta会有两个不同的值	
+	根据以上参数设置得到的命令行是：
+	java LearnTopicModel -model tam -input /media/blade091/新加卷/Data/TAM-Data/Using/Politics-Religious-Freedom-Not-to-Serve-Jews -iters 2000 -Z 25 -Y 2 -alpha 0.1 -beta 1.0 -omega 0.01 -delta0 10.0 -delta1 10.0 -gamma0 10.0 -gamma1 10.0 
+
+	输出结果(输出相应的top words)：
+	python topwords_tam.py /media/blade091/新加卷/Data/TAM-Data/Using/Politics-Religious-Freedom-Not-to-Serve-Jews.assign > /media/blade091/新加卷/Data/TAM-Data/Using/output_topwords_tam.txt
+	
+	输出结果并写成容易阅读的形式：
+	python topwords_tam_改.py /media/blade091/新加卷/Data/TAM-Data/Using/Politics-Religious-Freedom-Not-to-Serve-Jews.assign 
+
+	只产生一个topic：
+	java LearnTopicModel -model tam -input /media/blade091/新加卷/Data/TAM-Data/Using/Politics-Religious-Freedom-Not-to-Serve-Jews -iters 2000 -Z 1 -Y 2 -alpha 0.1 -beta 1.0 -omega 0.01 -delta0 10.0 -delta1 10.0 -gamma0 10.0 -gamma1 10.0
+	python topwords_tam_改.py /media/blade091/新加卷/Data/TAM-Data/Using/Politics-Religious-Freedom-Not-to-Serve-Jews.assign 
+
+
+=======
+>>>>>>> origin/master
+
